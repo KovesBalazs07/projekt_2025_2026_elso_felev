@@ -1,0 +1,23 @@
+Bevétel és kiadás rögzítése:
+
+Dátum, kategória, összeg, megjegyzés, fizetési mód (készpénz, bankkártya, utalás stb.)
+
+Kézi vagy importált (pl. banki CSV-ből) adatbevitel
+
+Kategóriák kezelése:
+
+Alapértelmezett kategóriák (pl. élelmiszer, lakbér, szórakozás, fizetés)
+
+Saját kategóriák létrehozása
+
+Időszakos összegzések:
+
+Havi, heti, éves bevételek/kiadások összegzése
+
+Grafikonok, diagramok (pl. oszlopdiagram, kördiagram)
+
+Költségvetés tervezés:
+
+Előre megadott havi keret kategóriánként
+
+Figyelmeztetés túllépés esetén
