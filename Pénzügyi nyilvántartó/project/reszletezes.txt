@@ -1,0 +1,17 @@
+Pénzügyi nyilvántartó weboldal! 
+
+Bevétel és kiadás rögzítése:
+- Dátum, kategória, összeg, megjegyzés, fizetési mód (készpénz, bankkártya, utalás stb.)
+- Kézi vagy importált adatbevitel (egyenlőre nem kell)
+
+Kategóriák kezelése:
+- Alapértelmezett kategóriák (pl. élelmiszer, lakbér, szórakozás, fizetés) 
+- Saját kategóriák létrehozása (egyenlőre nem kell)
+
+Időszakos összegzések:
+- Havi, heti, éves bevételek/kiadások összegzése
+- Grafikonok, diagramok (pl. oszlopdiagram, kördiagram) (egyenlőre nem kell)
+
+Költségvetés tervezés:
+- Előre megadott havi keret kategóriánként
+- Figyelmeztetés túllépés esetén (egyenlőre nem kell)
