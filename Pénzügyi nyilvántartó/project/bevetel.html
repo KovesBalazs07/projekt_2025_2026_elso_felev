@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevételek – Pénzügyi Nyilvántartó</title>
+    <link rel="stylesheet" href="bevetelcss.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Pénzügyi Nyilvántartó</div>
+            <ul class="nav-links">
+                <li><a href="fooldal.html">Főoldal</a></li>
+                <li><a href="bevetel.html" class="active">Bevételek</a></li>
+                <li><a href="kiadas.html">Kiadások</a></li>
+                <li><a href="statisztika.html">Statisztika</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Bevételek rögzítése</h1>
+
+        <section class="form-section">
+            <h2>Új bevétel hozzáadása</h2>
+            <form class="input-form">
+                <div class="form-group">
+                    <label>Dátum</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Kategória</label>
+                    <select required>
+                        <option value="fizetes">Fizetés</option>
+                        <option value="ajandek">Ajándék</option>
+                        <option value="befektetes">Befektetés</option>
+                        <option value="egyeb">Egyéb</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Összeg (Ft)</label>
+                    <input type="number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Megjegyzés</label>
+                    <input type="text" placeholder="Opcionális">
+                </div>
+
+                <div class="form-group">
+                    <label>Fizetési mód</label>
+                    <select required>
+                        <option value="készpénz">Készpénz</option>
+                        <option value="bankkártya">Bankkártya</option>
+                        <option value="utalas">Utalás</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Hozzáadás</button>
+            </form>
+        </section>
+
+        <section class="table-section">
+            <h2>Rögzített bevételek</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dátum</th>
+                        <th>Kategória</th>
+                        <th>Összeg</th>
+                        <th>Megjegyzés</th>
+                        <th>Fizetési mód</th>
+                    </tr>
+                </thead>
+                <tbody id="bevtabla">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="beveteljs.js"></script>
+</body>
+
+</html>
