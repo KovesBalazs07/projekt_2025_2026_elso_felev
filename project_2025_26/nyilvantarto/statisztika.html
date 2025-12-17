@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statisztika</title>
+    <link rel="stylesheet" href="statisztikacss.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Pénzügyi Nyilvántartó</div>
+            <ul class="nav-links">
+                <li><a href="fooldal.html">Főoldal</a></li>
+                <li><a href="bevetel.html">Bevételek</a></li>
+                <li><a href="kiadas.html">Kiadások</a></li>
+                <li><a href="statisztika.html" class="active">Statisztika</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <h1 class="penz">Pénzügyi statisztika</h1>
+
+        <div class="container">
+        <div class="stat-cards">
+            <div class="card">
+                <h3>Napi összesítés</h3>
+                <p>Bevétel: <span id="napibevetel"></span></p>
+                <p>Kiadás: <span id="napikiadas"></span></p>
+            </div>
+
+
+            <div class="card">
+                <h3>Heti összesítés</h3>
+                <p>Bevétel: <span id="hetibevetel"></span></p>
+                <p>Kiadás: <span id="hetikiadas"></span></p>
+            </div>
+
+
+            <div class="card">
+                <h3>Havi összesítés</h3>
+                <p>Bevétel: <span id="havibevetel"></span></p>
+                <p>Kiadás: <span id="havikiadas"></span></p>
+            </div>
+        </div>
+
+        <h2 class="penz">Diagramok</h2>
+
+        <div class="charts">
+            <div class="chart-box">
+                <h3>Napi diagram</h3>
+                <canvas id="napistatisztika"></canvas>
+            </div>
+
+
+            <div class="chart-box">
+                <h3>Heti diagram</h3>
+                <canvas id="hetistatisztika"></canvas>
+            </div>
+
+
+            <div class="chart-box">
+                <h3>Havi diagram</h3>
+                <canvas id="havistatisztika"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Pénzügyi Nyilvántartó. Minden jog fenntartva.</p>
+    </footer>
+
+    <script src="statisztika.js"></script>
+    
+</body>
+
+</html>
