@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=utf-8");
 $conn = new mysqli("localhost", "root", "", "penznyilvantarto");
 
 if ($conn->connect_error) {
-    echo json_encode(["hiba" => "Nem lehet kapcsolódni az adatbázishoz"]);
+    echo json_encode(["success" => false, "message" => "Adatbázis hiba"]);
     exit();
 }
 
