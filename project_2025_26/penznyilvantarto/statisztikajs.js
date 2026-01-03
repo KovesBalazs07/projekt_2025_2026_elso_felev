@@ -1,22 +1,19 @@
-// Statisztikai adatok lekérése
 fetch("php/mentes_statisztika.php")
   .then(r => r.json())
   .then(adatok => {
 
     console.log(adatok);
 
-    // ÖSSZES bevétel / kiadás
     const osszBevetel = Number(adatok.ossz_bevetel);
     const osszKiadas = Number(adatok.ossz_kiadas);
 
-    // --- NAPI STATISZTIKA ---
     const maiDatum = new Date().getDate();
     let napiBev = 0;
     let napiKia = 0;
 
     for (let i = 0; i < adatok.havi_bevetel.length; i++) {
       if (adatok.havi_bevetel[i].honap == (new Date().getMonth() + 1)) {
-        napiBev += Number(adatok.havi_bevetel[i].osszeg) / 30; // egyszerűsített napi becslés
+        napiBev += Number(adatok.havi_bevetel[i].osszeg) / 30; 
       }
     }
 
@@ -29,16 +26,12 @@ fetch("php/mentes_statisztika.php")
     document.getElementById("napibevetel").textContent = Math.round(napiBev) + " Ft";
     document.getElementById("napikiadas").textContent = Math.round(napiKia) + " Ft";
 
-
-    // --- HETI STATISZTIKA (becslés) ---
     let hetiBev = Math.round(napiBev * 7);
     let hetiKia = Math.round(napiKia * 7);
 
     document.getElementById("hetibevetel").textContent = hetiBev + " Ft";
     document.getElementById("hetikiadas").textContent = hetiKia + " Ft";
 
-
-    // --- HAVI STATISZTIKA ---
     let haviBev = 0;
     let haviKia = 0;
 
@@ -57,12 +50,6 @@ fetch("php/mentes_statisztika.php")
     document.getElementById("havibevetel").textContent = haviBev + " Ft";
     document.getElementById("havikiadas").textContent = haviKia + " Ft";
 
-
-    // ========================================================================
-    // DIAGRAMOK
-    // ========================================================================
-
-    // 1. NAPI DIAGRAM (becsült napi bevétel/kiadás)
     new Chart(document.getElementById("napistatisztika"), {
       type: "bar",
       data: {
@@ -74,7 +61,6 @@ fetch("php/mentes_statisztika.php")
       }
     });
 
-    // 2. HETI DIAGRAM
     new Chart(document.getElementById("hetistatisztika"), {
       type: "bar",
       data: {
@@ -86,7 +72,6 @@ fetch("php/mentes_statisztika.php")
       }
     });
 
-    // 3. HAVI DIAGRAM
     new Chart(document.getElementById("havistatisztika"), {
       type: "bar",
       data: {
