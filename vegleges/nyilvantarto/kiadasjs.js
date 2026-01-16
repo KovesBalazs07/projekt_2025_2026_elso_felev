@@ -1,0 +1,81 @@
+let kiadasLista = JSON.parse(localStorage.getItem("kiadasok")) || [];
+
+const tabla = document.querySelector("#kiadtabla");
+const form = document.querySelector(".input-form");
+console.log("tabla:", tabla);
+console.log("form:", form);
+
+window.onload = function () {
+    kiadasLista.forEach(b => tablaSorkeszit(b));
+};
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const mezok = form.querySelectorAll("input, select");
+
+    const ujKiadas = {
+        datum: mezok[0].value,
+        kategoria: mezok[1].value,
+        osszeg: mezok[2].value,
+        megjegyzes: mezok[3].value,
+        fizmod: mezok[4].value
+    };
+
+    tablaSorkeszit(ujKiadas);
+
+    kiadasLista.push(ujKiadas);
+    localStorage.setItem("kiadasok", JSON.stringify(kiadasLista));
+
+    mentesKiadas();
+    form.reset();
+});
+
+function tablaSorkeszit(adat) {
+    const sor = document.createElement("tr");
+
+    sor.innerHTML = `
+    <td>${adat.datum}</td>
+    <td>${szovegesKategoria(adat.kategoria)}</td>
+    <td>${adat.osszeg} Ft</td>
+    <td>${adat.megjegyzes}</td>
+    <td>${szovegesFizmod(adat.fizmod)}</td>
+`;
+
+    tabla.appendChild(sor);
+}
+
+function szovegesKategoria(kat) {
+    if (kat === "elelmiszer") return "Élelmiszer";
+    if (kat === "rezsi") return "Rezsi";
+    if (kat === "kozlekedes") return "Közlekedés";
+    if (kat === "szorakozas") return "Szórakozás";
+    if (kat === "egeszseg") return "Egészség";
+    return "Egyéb";
+}
+
+function szovegesFizmod(fm) {
+    if (fm === "készpénz" || fm === "készpenz") return "Készpénz";
+    if (fm === "bankkártya") return "Bankkártya";
+    return "Utalás";
+}
+
+function mentesKiadas() {
+    let formData = new FormData();
+    formData.append("datum", document.getElementById("ido").value);
+    formData.append("kategoria", document.getElementById("kategor").value);
+    formData.append("osszeg", document.getElementById("szam").value);
+    formData.append("megjegyzes", document.getElementById("szoveg").value);
+    formData.append("fizmod", document.getElementById("mod").value);
+    console.log(Array.from(formData));
+
+    fetch("php/mentes_kiadas.php",
+        {
+            method: "POST",
+            body: formData
+        })
+        .then(r => r.text())
+        .then(t => {
+            console.log("PHP válasz:", t);
+        })
+}
