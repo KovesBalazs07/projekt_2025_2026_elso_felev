@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rögzítések – Pénzügyi Nyilvántartó</title>
+  <link rel="stylesheet" href="bevetelcss.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Pénzügyi Nyilvántartó</div>
+      <ul class="nav-links">
+        <li><a href="fooldal.html">Főoldal</a></li>
+        <li><a href="bevetel.html" class="active">Rögzítések</a></li>
+        <li><a href="statisztika.html">Statisztika</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Bevétel / Kiadás rögzítése</h1>
+
+    <section class="form-section">
+      <i><h2>Új tétel hozzáadása</h2></i>
+
+      <form id="tetelForm" class="input-form">
+        <div class="form-group">
+          <label>Típus</label>
+          <select id="tipus" required>
+            <option value="bevetel">Bevétel</option>
+            <option value="kiadas">Kiadás</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Dátum</label>
+          <input type="date" id="datum" required>
+        </div>
+
+        <div class="form-group">
+          <label>Kategória</label>
+          <select id="kategoria" required></select>
+        </div>
+
+        <div class="form-group">
+          <label>Összeg (Ft)</label>
+          <input type="number" id="osszeg" required>
+        </div>
+
+        <div class="form-group">
+          <label>Megjegyzés</label>
+          <input type="text" id="megjegyzes" placeholder="Opcionális">
+        </div>
+
+        <div class="form-group">
+          <label>Fizetési mód</label>
+          <select id="fizmod" required>
+            <option value="készpénz">Készpénz</option>
+            <option value="bankkártya">Bankkártya</option>
+            <option value="utalas">Utalás</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary">Hozzáadás</button>
+      </form>
+    </section>
+
+    <section class="form-section">
+      <i><h2>Rögzített tételek</h2></i>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Típus</th>
+            <th>Dátum</th>
+            <th>Kategória</th>
+            <th>Összeg</th>
+            <th>Megjegyzés</th>
+            <th>Fizetési mód</th>
+          </tr>
+        </thead>
+        <tbody id="tetelTabla"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script src="rogzitesek.js"></script>
+
+  <footer>
+    <p>© 2025 Pénzügyi Nyilvántartó. Minden jog fenntartva.</p>
+  </footer>
+</body>
+
+</html>
