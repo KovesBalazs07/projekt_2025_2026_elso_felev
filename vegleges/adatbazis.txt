@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS penzugyinyilvantarto
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_hungarian_ci;
+
+USE penzugyinyilvantarto;
+
+CREATE TABLE bevetel (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  datum DATE NOT NULL,
+  kategoria VARCHAR(50) NOT NULL,
+  osszeg INT NOT NULL,
+  megjegyzes VARCHAR(255) DEFAULT '',
+  fizetesi_mod VARCHAR(30) NOT NULL,
+  letrehozva TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE kiadas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  datum DATE NOT NULL,
+  kategoria VARCHAR(50) NOT NULL,
+  osszeg INT NOT NULL,
+  megjegyzes VARCHAR(255) DEFAULT '',
+  fizetesi_mod VARCHAR(30) NOT NULL,
+  letrehozva TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE statisztika (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  idoszak VARCHAR(10) NOT NULL,
+  kezdet DATE NOT NULL,
+  bevetel INT NOT NULL DEFAULT 0,
+  kiadas INT NOT NULL DEFAULT 0,
+  frissitve TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  UNIQUE KEY uniq_idoszak_kezdet (idoszak, kezdet)
+);
